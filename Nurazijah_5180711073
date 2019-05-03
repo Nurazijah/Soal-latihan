@@ -1,0 +1,110 @@
+#include<iostream>
+#include<conio.h>
+using namespace::std;
+void identitas()
+{
+    string cari,nama;
+    int jml=5;
+    string no[5]={"A001","A002","A003","A007","A008"};
+    string nm[5]={"Bayu","Irvan","Susanti","Diana","Roni"};
+    cout<<"Masukkan no.id :"; cin>>cari;
+    for(int i=0;i<jml;i++)
+    {
+        if(cari==no[i])
+        {
+            nama=nm[i];
+        }
+    }
+    cout<<"==Anda Member=="<<endl;
+    cout<<"No.ID    :"<<cari<<endl;
+    cout<<"Nama     :"<<nama<<endl;
+}
+double belanja()
+{
+    string nb;
+    int b,j,h[5],t,tt=0,temp;
+    cout<<"Berapa jenis jumlah barang yang di beli :"; cin>>b;
+    for(int i=0;i<b;i++)
+    {
+        cout<<"*Barang ke-"<<i<<"*"<<endl;
+        cout<<"Nama Barang      :"; cin>>nb;
+        cout<<"Berapa jumlahnya :"; cin>>j;
+        cout<<"Berapa harganya  :"; cin>>h[i];
+        t=j*h[i];
+        cout<<"Total harga      :"<<t<<endl;
+        tt=tt+t;
+    }
+        cout<<"Total harga seluruh barang:"<<tt<<endl;
+        for(int a=b-2;a>=0;a--)
+        {
+            for(int z=0;z<=a;z++)
+            {
+                if(h[z]>h[z+1])
+                {
+                    temp=h[z];
+                    h[z]=h[z+1];
+                    h[z+1]=temp;
+
+                }
+            }
+        }
+        for(int x=0;x<b;x++)
+        {
+            cout<<"Sorting harga ke-"<<x+1<<":"<<h[x]<<endl;
+        }
+}
+double belanja2()
+{
+    string nb;
+    int b,j,h[5],t,tt=0,ds,temp;
+    cout<<"Berapa macam jumlah barang yang di beli :"; cin>>b;
+    for(int i=0;i<b;i++)
+    {
+        cout<<"*Barang ke-"<<i<<"*"<<endl;
+        cout<<"Nama Barang      :"; cin>>nb;
+        cout<<"Berapa jumlahnya :"; cin>>j;
+        cout<<"Berapa harganya  :"; cin>>h[i];
+        t=j*h[i];
+        cout<<"Total harga      :"<<t<<endl;
+        tt=tt+t;
+    }
+    cout<<"Total harga seluruh barang :"<<tt<<endl;
+    cout<<"==Member mendapatkan diskon 5%=="<<endl;
+    ds=(tt-tt*5/100);
+    cout<<"Total harga setelah diskon :"<<ds<<endl;
+    for(int a=b-2;a>=0;a--)
+        {
+            for(int z=0;z<=a;z++)
+            {
+                if(h[z]>h[z+1])
+                {
+                    temp=h[z];
+                    h[z]=h[z+1];
+                    h[z+1]=temp;
+
+                }
+            }
+        }
+        for(int x=0;x<b;x++)
+        {
+            cout<<"Sorting harga ke-"<<x+1<<":"<<h[x]<<endl;
+        }
+}
+
+main()
+{
+    string m,n;
+    cout<<"\t\tProgram Kasir di Minimarket"<<endl;
+    cout<<"Member/non member?(ya/tidak) :"; cin>>m;
+    if(m=="ya")
+    {
+    identitas();
+    belanja2();
+    }
+    else
+    {
+        cout<<"==Anda Non-member=="<<endl;
+        cout<<"Nama pelanggan :"; cin>>n;
+        belanja();
+    }
+}
